@@ -9,7 +9,7 @@ def main():
     pygame.display.set_caption("Hello Snake")
     clock = pygame.time.Clock()
     running = True
-    movement_delay = 10
+    movement_delay = 7
 
     player = []
     food = []
@@ -23,11 +23,13 @@ def main():
     current_index = 1
     key_detected = False
     food_exists = False
+    user_quit = False
 
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+                user_quit = True
 
         # Check input
         keys = pygame.key.get_pressed()
@@ -88,9 +90,9 @@ def main():
         for _ in range(1, len(player)):
             if player[0].get_pos() == player[_].get_pos():
                     die = True
-        if player[0].get_pos()[0] < 12 or player[0].get_pos()[0] > 702:
+        if player[0].get_pos()[0] < 12 or player[0].get_pos()[0] > 737:
                     die = True
-        elif player[0].get_pos()[1] < 12 or player[0].get_pos()[1] > 702:
+        elif player[0].get_pos()[1] < 12 or player[0].get_pos()[1] > 737:
                     die = True
 
         if die:
@@ -125,7 +127,7 @@ def main():
     game_over = True
     colours = ["white", "blue", "red", "green", "yellow"]
     counter = 0
-    while game_over:
+    while game_over and not user_quit:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 game_over = False

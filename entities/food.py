@@ -11,8 +11,8 @@ class Food():
         select_pos = True
         while select_pos:
             invalid = False
-            self._pos_x = random.randrange(12, 702, 35) + 0.5
-            self._pos_y = random.randrange(12, 702, 35) + 0.5
+            self._pos_x = random.randrange(12, 737, 35) + 0.5
+            self._pos_y = random.randrange(12, 737, 35) + 0.5
             counter = 0
             while counter < len(player):
                 seg_pos = player[counter].get_pos()
